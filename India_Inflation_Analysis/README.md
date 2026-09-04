@@ -97,21 +97,6 @@ evidence of a structural break**.
 
 ## Project Structure
 
-``` text
-India_Inflation_Analysis/
-│
-├── README.md
-├── data/
-│   └── CPI_REGRESSION.xlsx
-│
-└── plots/
-    ├── Correlation.png
-    ├── India_Inflation.png
-    ├── model_comparison_r2.png
-    ├── regression_model_comparison.png
-    ├── Structural_Break.png
-    └── wpi_vs_gdp_deflator.png
-```
 
 ## Tools
 
