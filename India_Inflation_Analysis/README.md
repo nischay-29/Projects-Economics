@@ -69,49 +69,7 @@ level.
 The proposed **2020 break does not provide statistically significant
 evidence of a structural break**.
 
-## Visualizations
 
-### Inflation Measures Over Time
-
-![Inflation Measures](plots/India_Inflation.png)
-
-### CPI vs GDP Deflator
-
-![CPI vs GDP Deflator](plots/Correlation.png)
-
-### WPI vs GDP Deflator
-
-![WPI vs GDP Deflator](plots/wpi_vs_gdp_deflator.png)
-
-### Model Comparison
-
-![Model Comparison](plots/model_comparison_r2.png)
-
-### Regression Results
-
-![Regression Results](plots/regression_model_comparison.png)
-
-### Structural Break Analysis
-
-![Structural Break](plots/Structural_Break.png)
-
-## Project Structure
-
-``` text
-India_Inflation_Analysis/
-│
-├── README.md
-├── data/
-│   └── CPI_REGRESSION.xlsx
-│
-└── plots/
-    ├── Correlation.png
-    ├── India_Inflation.png
-    ├── model_comparison_r2.png
-    ├── regression_model_comparison.png
-    ├── Structural_Break.png
-    └── wpi_vs_gdp_deflator.png
-```
 
 ## Tools
 
