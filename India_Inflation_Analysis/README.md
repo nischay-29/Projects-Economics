@@ -35,11 +35,11 @@ This analysis establishes association, not causality.
 
 The baseline regressions use deflator inflation $\pi^D_t$ as the outcome and CPI inflation $\pi^C_t$ and WPI inflation $\pi^W_t$ as explanatory variables:
 
-$$\pi^D_t = \alpha_1 + \beta_1\,\pi^C_t + \varepsilon_t \qquad \text{(M1)}$$
+$$\pi^D_t = \alpha_1 + \beta_1 \pi^C_t + \varepsilon_t \qquad \text{(M1)}$$
 
-$$\pi^D_t = \alpha_2 + \beta_2\,\pi^W_t + \varepsilon_t \qquad \text{(M2)}$$
+$$\pi^D_t = \alpha_2 + \beta_2 \pi^W_t + \varepsilon_t \qquad \text{(M2)}$$
 
-$$\pi^D_t = \alpha_3 + \beta_3\,\pi^C_t + \gamma_3\,\pi^W_t + \varepsilon_t \qquad \text{(M3)}$$
+$$\pi^D_t = \alpha_3 + \beta_3 \pi^C_t + \gamma_3 \pi^W_t + \varepsilon_t \qquad \text{(M3)}$$
 
 To check how much to trust them, I then:
 
@@ -115,9 +115,9 @@ There was some evidence of a change around 2016, but not strong enough to call i
 
 | Model | Equation | R² | Out-of-sample RMSE |
 |---|---|---|---|
-| M2: simplest | $\hat\pi^D_t = 2.61 + 0.443\,\pi^W_t$ | 0.703 | 1.63 |
-| M3: original | $\hat\pi^D_t = 1.04 + 0.331\,\pi^C_t + 0.417\,\pi^W_t$ | 0.740 | 1.58 |
-| **C4: recommended** | $\hat\pi^D_t = 1.31 + 0.290\,\pi^C_t + 0.577\,\pi^W_t - 0.183\,\pi^W_{t-1}$ | 0.765 | 1.51 |
+| M2: simplest | $\hat\pi^D_t = 2.61 + 0.443 \pi^W_t$ | 0.703 | 1.63 |
+| M3: original | $\hat\pi^D_t = 1.04 + 0.331 \pi^C_t + 0.417 \pi^W_t$ | 0.740 | 1.58 |
+| **C4: recommended** | $\hat\pi^D_t = 1.31 + 0.290 \pi^C_t + 0.577 \pi^W_t - 0.183 \pi^W_{t-1}$ | 0.765 | 1.51 |
 
 C4 (CPI, WPI and one lag of WPI) has the best BIC among the candidate models without a dummy variable, clean residuals (Durbin-Watson 1.89), and the lowest forecast error (tied with one other specification). The negative lag means that part of a WPI jump reverses the following quarter, and the long-run WPI effect is $0.577 - 0.183 = 0.394$, close to the 0.44 from M2. The improvement is modest: forecast error falls by about 4% (1.58 to 1.51 percentage points) and I did not test whether that is statistically significant.
 
