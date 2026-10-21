@@ -26,10 +26,10 @@ This analysis establishes association, not causality.
 
 - Quarterly data on Indian fiscal years (April to March), 2013-14 Q4 to 2025-26 Q2, giving 47 quarters.
 - Source workbook: `Data/CPI_REGRESSON.xlsx`. I assume it holds the 2011-12 base national accounts series.
-- All the constructed datasets and model results are compiled in one workbook, `Data/India_Inflation_Datasets.xlsx` (see below).
+- All the constructed datasets and model results are compiled in one workbook, `India_Inflation_Datasets.xlsx` (see below).
 - One data point needs checking at source: the deflator for 2018-19 Q4 shows about -0.94% year-on-year, which looks implausible and is the most influential observation in the baseline regression.
 
-![Inflation series](Plots/fig1_inflation_series.png)
+![Inflation series](fig1_inflation_series.png)
 
 ## Methodology
 
@@ -55,7 +55,7 @@ To check how much to trust them, I then:
 
 I define the gap as $g_t = \pi^C_t - \pi^D_t$.
 
-![CPI-deflator gap](Plots/fig2_cpi_deflator_gap.png)
+![CPI-deflator gap](fig2_cpi_deflator_gap.png)
 
 | Statistic | Value |
 |---|---|
@@ -85,7 +85,7 @@ The CPI-only model (M1) is the weakest: its residuals are strongly autocorrelate
 
 ### How much is the 2021-23 shock?
 
-![WPI and CPI against the deflator](Plots/fig3_wpi_cpi_vs_deflator.png)
+![WPI and CPI against the deflator](fig3_wpi_cpi_vs_deflator.png)
 
 | Sample | n | R² (WPI only) | WPI slope |
 |---|---|---|---|
@@ -109,7 +109,7 @@ $$F = \frac{(RSS_P - RSS_1 - RSS_2)/k}{(RSS_1 + RSS_2)/(n_1 + n_2 - 2k)}$$
 
 There was some evidence of a change around 2016, but not strong enough to call it a definitive structural break (the Chow test was insignificant with a p-value of 0.0653). With only nine pre-break quarters the test has little power. The evidence around 2020 was considerably weaker.
 
-![Structural breaks](Plots/fig4_structural_breaks.png)
+![Structural breaks](fig4_structural_breaks.png)
 
 ### Best models
 
@@ -125,11 +125,11 @@ C4 (CPI, WPI and one lag of WPI) has the best BIC among the candidate models wit
 
 I fitted a VAR(3) on annualised quarter-on-quarter seasonally adjusted rates with a COVID dummy. CPI never helps predict the deflator. WPI does at most lag lengths (p = 0.001 with three lags), but VAR(3) is the only lag length with clean residuals, and the variance decomposition depends on the ordering of the variables (WPI explains 10% to 35% of the deflator's four-quarter forecast error variance, CPI 5% to 12%). These results should not be quoted as precise, and Granger causality is about prediction, not cause and effect.
 
-![Variance decomposition](Plots/fig5_var_variance_decomposition.png)
+![Variance decomposition](fig5_var_variance_decomposition.png)
 
 ## Excel Workbook
 
-`Data/India_Inflation_Datasets.xlsx` compiles every constructed dataset and result table in one file:
+`India_Inflation_Datasets.xlsx` compiles every constructed dataset and result table in one file:
 
 | Sheet | Contents |
 |---|---|
