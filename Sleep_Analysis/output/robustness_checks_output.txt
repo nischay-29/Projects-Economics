@@ -1,0 +1,301 @@
+
+===== A. STIMULANT USE ~ SLEEP SACRIFICE =====
+crosstab (rows: sleep sacrifice, cols: stimulant use), row %
+                  
+                   Never Rarely Sometimes Often Daily
+  Never                4      1         1     0     0
+  Rarely              10      6         5     2     2
+  Sometimes           20     30        25    16     4
+  Often               13     18        20    17    13
+  Almost every day     2      0         3     2     5
+                  
+                   Never Rarely Sometimes Often Daily
+  Never               67     17        17     0     0
+  Rarely              40     24        20     8     8
+  Sometimes           21     32        26    17     4
+  Often               16     22        25    21    16
+  Almost every day    17      0        25    17    42
+mean stimulant score (1-5) by sleep sacrifice level:
+           Never           Rarely        Sometimes            Often Almost every day 
+            1.50             2.20             2.52             2.99             3.67 
+bivariate, sleep sacrifice numeric 1-5: OR per one step
+       OR 2.5 % 97.5 %
+ss_n 2.07  1.53   2.82
+with weekday sleep and screen time (numeric): OR per one step
+       OR 2.5 % 97.5 %
+ss_n 1.99  1.47   2.70
+sw_n 0.74  0.58   0.95
+st_n 0.96  0.78   1.19
+with weekday sleep and screen time as factors (as in model 3): OR per step for ss_n
+       OR 2.5 % 97.5 %
+ss_n 1.97  1.45   2.69
+p-value for ss_n in a3 (LR):
+Analysis of Deviance Table (Type II tests)
+
+Response: stimulant_use
+              LR Chisq Df Pr(>Chisq)    
+ss_n           19.1887  1  1.184e-05 ***
+sleep_weekday   7.4548  4     0.1137    
+screen_time     5.3905  4     0.2495    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+adding stream, employment, year: OR per step for ss_n
+      OR 2.5 % 97.5 %
+ss_n 2.1   1.5   2.96
+is the step effect linear? numeric vs factor coding of sleep sacrifice (LR test)
+  Resid. df Resid. Dev LR stat.  Pr(Chi)
+1       206   652.3747                  
+2       203   650.3968 1.977935 0.576999
+treatment-coded ORs vs 'Sometimes' (largest group):
+                       OR 2.5 % 97.5 %
+ss_tNever            0.10  0.01   0.50
+ss_tRarely           0.45  0.19   1.04
+ss_tOften            1.50  0.87   2.61
+ss_tAlmost every day 3.84  1.08  14.03
+collapsed: Never/Rarely vs Sometimes vs Often/Almost every day
+
+Never/Rarely    Sometimes  Often/Daily 
+          31           95           93 
+                  OR 2.5 % 97.5 %
+ss_3Sometimes   2.96  1.37   6.56
+ss_3Often/Daily 4.81  2.21  10.69
+proportional odds check: polr vs multinomial logit (bivariate numeric)
+LR = 0.57 df = 3 p = 0.904 
+Spearman:
+$estimate
+      rho 
+0.2928449 
+
+$p.value
+[1] 1.053541e-05
+
+
+===== B. SLEEP SACRIFICE ~ STREAM (model 1) =====
+                                   
+                                    Never Rarely Sometimes Often Almost every day
+  Business/ Management                  0      2        10     6                1
+  Commerce / Economics                  5     15        58    37                5
+  Engineering                           0      1         2    10                1
+  Humanities / Liberal Arts             1      2         9    16                3
+  Other                                 0      1         7     3                1
+  Science (Non-Engineering/Medical)     0      4         9     9                1
+                                   
+                                    Never Rarely Sometimes Often Almost every day
+  Business/ Management                  0     11        53    32                5
+  Commerce / Economics                  4     12        48    31                4
+  Engineering                           0      7        14    71                7
+  Humanities / Liberal Arts             3      6        29    52               10
+  Other                                 0      8        58    25                8
+  Science (Non-Engineering/Medical)     0     17        39    39                4
+share Often/Almost every day by stream:
+             Business/ Management              Commerce / Economics                       Engineering         Humanities / Liberal Arts                             Other 
+                               37                                35                                79                                61                                33 
+Science (Non-Engineering/Medical) 
+                               43 
+Warning message:
+glm.fit: fitted probabilities numerically 0 or 1 occurred 
+m1 with Commerce/Economics as reference: stream ORs
+                                             OR 2.5 % 97.5 %
+stream_cBusiness/ Management               1.68  0.63   4.49
+stream_cEngineering                       13.56  3.48  55.02
+stream_cHumanities / Liberal Arts          2.84  1.22   6.69
+stream_cOther                              1.61  0.42   6.29
+stream_cScience (Non-Engineering/Medical)  1.65  0.62   4.37
+Warning message:
+glm.fit: fitted probabilities numerically 0 or 1 occurred 
+m1 without imputed gender: Type II tests and stream ORs
+Analysis of Deviance Table (Type II tests)
+
+Response: sleep_sacrifice
+                    LR Chisq Df Pr(>Chisq)  
+extracurricular_hrs   5.7061  4    0.22219  
+internship_hrs        1.4017  4    0.84390  
+academic_hrs          2.3958  4    0.66338  
+screen_time           6.0741  4    0.19368  
+employment            3.4018  3    0.33373  
+stream_c             13.4404  5    0.01958 *
+year                  8.8681  4    0.06448 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Warning messages:
+1: glm.fit: fitted probabilities numerically 0 or 1 occurred 
+2: glm.fit: fitted probabilities numerically 0 or 1 occurred 
+3: glm.fit: fitted probabilities numerically 0 or 1 occurred 
+4: glm.fit: fitted probabilities numerically 0 or 1 occurred 
+5: glm.fit: fitted probabilities numerically 0 or 1 occurred 
+                                            OR 2.5 % 97.5 %
+stream_cBusiness/ Management              1.33  0.51   3.52
+stream_cEngineering                       6.07  1.93  19.88
+stream_cHumanities / Liberal Arts         2.71  1.19   6.30
+stream_cOther                             1.21  0.33   4.54
+stream_cScience (Non-Engineering/Medical) 1.72  0.66   4.56
+stream only: 
+Analysis of Deviance Table (Type II tests)
+
+Response: sleep_sacrifice
+         LR Chisq Df Pr(>Chisq)  
+stream_c   12.861  5    0.02472 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+                                            OR 2.5 % 97.5 %
+stream_cBusiness/ Management              1.24  0.51   3.03
+stream_cEngineering                       4.49  1.58  13.26
+stream_cHumanities / Liberal Arts         2.74  1.28   5.97
+stream_cOther                             1.22  0.41   3.67
+stream_cScience (Non-Engineering/Medical) 1.29  0.55   3.00
+Warning message:
+glm.fit: fitted probabilities numerically 0 or 1 occurred 
+without Engineering (n=14) and without gender: is stream still significant?
+Analysis of Deviance Table (Type II tests)
+
+Response: sleep_sacrifice
+                    LR Chisq Df Pr(>Chisq)  
+extracurricular_hrs   6.1434  4    0.18870  
+internship_hrs        0.8684  4    0.92905  
+academic_hrs          2.4034  4    0.66201  
+screen_time           7.9959  4    0.09173 .
+employment            3.1563  3    0.36816  
+stream_c              5.8431  4    0.21118  
+year                 10.8187  4    0.02868 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Warning messages:
+1: glm.fit: fitted probabilities numerically 0 or 1 occurred 
+2: glm.fit: fitted probabilities numerically 0 or 1 occurred 
+3: glm.fit: fitted probabilities numerically 0 or 1 occurred 
+4: glm.fit: fitted probabilities numerically 0 or 1 occurred 
+5: glm.fit: fitted probabilities numerically 0 or 1 occurred 
+Kruskal-Wallis sleep sacrifice by stream, with and without Engineering
+[1] 0.03027697
+[1] 0.1716414
+Engineering vs all others, Wilcoxon:
+[1] 0.0148564
+
+===== C. PRODUCTIVITY AFTER SHORT SLEEP ~ WEEKDAY SLEEP (model 2 and the non-linearity check) =====
+NOTE coding: 1 = Much worse ... 5 = Much better, so HIGHER = LESS loss
+                 
+                  Much worse Somewhat worse No difference Somewhat better Much better
+  Less than 4 hrs          0              2             5               2           1
+  4–5 hrs                  0             15            13               4           1
+  6 hrs                    3             36            29               8           4
+  7 hrs                   11             36            22               5           0
+  8 or more hrs            2              6             7               4           3
+                 
+                  Much worse Somewhat worse No difference Somewhat better Much better
+  Less than 4 hrs          0             20            50              20          10
+  4–5 hrs                  0             45            39              12           3
+  6 hrs                    4             45            36              10           5
+  7 hrs                   15             49            30               7           0
+  8 or more hrs            9             27            32              18          14
+mean score by weekday sleep (higher = less loss):
+Less than 4 hrs         4–5 hrs           6 hrs           7 hrs   8 or more hrs 
+           3.20            2.73            2.67            2.28            3.00 
+share reporting worse (Much/Somewhat worse) by weekday sleep:
+Less than 4 hrs         4–5 hrs           6 hrs           7 hrs   8 or more hrs 
+             20              45              49              64              36 
+linear vs quadratic (LR):
+  Resid. df Resid. Dev LR stat.    Pr(Chi)
+1       214   560.9581                    
+2       213   555.0835 5.874595 0.01536091
+AIC lin/quad/factor: 570.96 567.08 563.18 
+linear term alone: OR per step and LR p
+       OR 2.5 % 97.5 %
+sw_n 0.79  0.61   1.01
+Analysis of Deviance Table (Type II tests)
+
+Response: productivity_loss
+     LR Chisq Df Pr(>Chisq)  
+sw_n   3.4416  1    0.06357 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+quadratic without the <4 hrs group (n=10):
+  Resid. df Resid. Dev LR stat.    Pr(Chi)
+1       204   534.0438                    
+2       203   529.4730 4.570786 0.03252164
+quadratic without the 8+ hrs group (n=22):
+  Resid. df Resid. Dev  LR stat.   Pr(Chi)
+1       192   478.2325                    
+2       191   478.0889 0.1435764 0.7047511
+m2 stream ORs with Commerce/Economics reference, no gender (OR>1 = LESS loss than Commerce):
+Analysis of Deviance Table (Type II tests)
+
+Response: productivity_loss
+                LR Chisq Df Pr(>Chisq)   
+sleep_weekday    14.3672  4   0.006211 **
+sleep_sacrifice   5.8724  4   0.208878   
+stream_c         19.3130  5   0.001680 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+                                            OR 2.5 % 97.5 %
+stream_cBusiness/ Management              4.16  1.63  10.81
+stream_cEngineering                       1.74  0.52   5.68
+stream_cHumanities / Liberal Arts         1.55  0.71   3.38
+stream_cOther                             0.40  0.12   1.25
+stream_cScience (Non-Engineering/Medical) 3.47  1.48   8.20
+mean productivity score by stream (higher = less loss), n:
+             Business/ Management              Commerce / Economics                       Engineering         Humanities / Liberal Arts                             Other 
+                             3.16                              2.45                              2.71                              2.77                              2.08 
+Science (Non-Engineering/Medical) 
+                             2.96 
+
+             Business/ Management              Commerce / Economics                       Engineering         Humanities / Liberal Arts                             Other 
+                               19                               120                                14                                31                                12 
+Science (Non-Engineering/Medical) 
+                               23 
+Spearman productivity score vs sleep sacrifice (reported rho = 0.14):
+$estimate
+      rho 
+0.1401996 
+
+$p.value
+[1] 0.03815908
+
+
+===== D. SLEEP QUALITY ~ WEEKDAY SLEEP (model 4) =====
+OR per one step of weekday sleep, no gender:
+       OR 2.5 % 97.5 %
+sw_n 2.57  1.92   3.47
+Analysis of Deviance Table (Type II tests)
+
+Response: sleep_quality
+              LR Chisq Df Pr(>Chisq)    
+sw_n            41.833  1  9.943e-11 ***
+academic_hrs     2.560  4     0.6339    
+peer_pressure    5.880  4     0.2083    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+===== E. MODELS WITHOUT IMPUTED GENDER: do headline tests change? =====
+Analysis of Deviance Table (Type II tests)
+
+Response: productivity_loss
+                LR Chisq Df Pr(>Chisq)   
+sleep_weekday    14.3672  4   0.006211 **
+sleep_sacrifice   5.8725  4   0.208878   
+stream_grp       19.3130  5   0.001680 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+gender observed only (n): 85  imputed: 134 
+        final
+observed Female Male Others
+  Female     59    0      0
+  Male        0   24      0
+  Others      0    0      2
+  <NA>      121   13      0
+
+===== F. employment x sleep sacrifice (the one significant chi-square test) =====
+                        
+                         Never Rarely Sometimes Often Almost every day
+  No                         0     10        43    42                1
+  Yes, paid internship       5      3        28    13                8
+  Yes, part-time job         0      0         3     4                1
+  Yes, unpaid internship     1     12        21    22                2
+
+	Pearson's Chi-squared test
+
+data:  t
+X-squared = 36.012, df = 12, p-value = 0.0003226
+
+expected counts < 5: 10 of 20 
+[1] 0.00179991
+[1] 0.3851792
